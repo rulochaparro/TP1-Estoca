@@ -1,0 +1,56 @@
+% Aquï¿½ se define el tamaï¿½o de letra principal:
+\documentclass[12pt]{article}
+
+% Configuro la codificación
+\usepackage[utf8]{inputenc}		
+
+\input{configuracion}
+\input{config}
+% Título y autor(es):
+
+\title{Trabajo de laboratorio 4}
+\author{Bourbon, Chaparro, Cozzi}
+
+%------------------------- Comandos útiles --------------------------------
+
+
+%------------------------- Inicio del documento ---------------------------
+
+\begin{document}
+
+	\input{Caratula}
+	
+	% Hago que las pï¿½ginas se comiencen a contar a partir de aca:
+	\pagestyle{fancy}
+	
+	\setcounter{page}{1}
+	
+	
+	% Pongo el ï¿½dice en una pï¿½gina aparte:
+	\newpage
+	
+	\tableofcontents
+	
+	% Inicio del TP:
+	\newpage
+	\section{Introducción}
+		
+		\input{./Secciones/Introduccion}
+	
+	\section{Desarrollo}	
+		\subsection{Ejercicio 1: Cálculo de ganancia de los repetidores analógicos}
+	
+			\input{./Secciones/Ejercicio_1}
+		
+		\subsection{Ejercicio 2: Probabiliad de error del sistema analógico}
+		
+			\input{./Secciones/Ejercicio_2}
+		
+		\subsection{Ejercicio 3: Probabilidad de error del sistema digital}
+		
+			\input{./Secciones/Ejercicio_3}
+		
+		\subsection{Ejercicio 4: Simulacion Monte Carlo de las probabilidades de error}
+			
+			\input{./Secciones/Ejercicio_4}
+\end{document}

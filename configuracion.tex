@@ -1,0 +1,124 @@
+%------------------------- Carga de paquetes ---------------------------
+%
+% Si no necesitï¿½s algï¿½n paquete, comentalo.
+%
+% Definiciï¿½n del tamaï¿½o de pï¿½gina y los mï¿½rgenes:
+%
+\usepackage[a4paper,headheight=16pt,scale={0.7,0.8},hoffset=0.5cm]{geometry}
+
+
+% Para escribir en castellano:
+%
+\usepackage[spanish]{babel}
+
+
+%\usepackage{lstlang06}
+
+%
+% Si se prefiere tipografï¿½a Helvetica (Arial), descomentar las siguientes dos lï¿½neas ( Las fï¿½rmulas seguiran estando en Times)
+%
+%\usepackage{helvet}
+%\renewcommand\familydefault{\sfdefault}
+\usepackage{siunitx}
+%
+%------------------------- Carga de paquetes ---------------------------
+%
+% Si no necesitï¿½s algï¿½n paquete, comentalo.
+%
+% Definiciï¿½n del tamaï¿½o de pï¿½gina y los mï¿½rgenes:
+%
+%\usepackage[a4paper,headheight=16pt,scale={0.7,0.8},hoffset=0.5cm]{geometry}
+
+% Para escribir en castellano:
+%
+\usepackage[spanish]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{lstlang06}
+
+%
+% Si se prefiere tipografï¿½a Helvetica (Arial), descomentar las siguientes dos lï¿½neas ( Las fï¿½rmulas seguiran estando en Times)
+%
+%\usepackage{helvet}
+%\renewcommand\familydefault{\sfdefault}
+\usepackage{siunitx}
+%
+% El paquete amsmath agrega algunas funcionalidades extra a las fï¿½rmulas. 
+% Ademï¿½s defino la numeraciï¿½n de las tablas y figuras al estilo "Figura 2.3", en lugar de "Figura 7". (Por lo tanto, aunque no uses fï¿½rmulas, si querï¿½s este tipo de numeraciï¿½n dejï¿½ el paquete amsmath descomentado).
+%
+\usepackage{amsmath}
+\usepackage{amsfonts} 
+\usepackage{amssymb} 
+\usepackage{fancybox} 
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\usepackage{listings}
+
+%
+% Para tener cabecera y pie de pï¿½gina con un estilo personalizado:
+%
+\usepackage{fancyhdr}
+
+%
+% Para poner el texto "Figura X" en negrita:
+% (Si no tenï¿½s el paquete 'caption2', probï¿½ con 'caption').
+%
+\usepackage[hang,bf]{caption}
+
+%
+% Para poder usar subfiguras: (al estilo Figura 2.3(b) )
+%
+\usepackage{subfigure}
+%
+% Para poder agregar notas al pie en tablas:
+%
+\usepackage{threeparttable}
+\usepackage{multirow}
+
+%------------------------------ graphicx ----------------------------------
+%
+% Para incluir imï¿½genes, el siguiente cï¿½digo carga el paquete graphicx 
+% segï¿½n se estï¿½ generando un archivo dvi o un pdf (con pdflatex). 
+
+% Para generar dvi, descomentï¿½ la linea siguiente:
+%\usepackage[dvips]{graphicx}
+
+% Para generar pdf, descomentï¿½ las dos lineas seguientes:
+\usepackage[pdftex]{graphicx}
+\pdfcompresslevel=9
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{mathrsfs}
+\usepackage{texdraw}
+\usepackage{pdfpages}
+
+%
+%------------------------------ graphicx ----------------------------------
+
+% Necesitï¿½s este paquete si haces los diagramas de flujo en el programa Dia 
+%\usepackage{tikz}
+%\usepackage{standalone}
+%\usepackage[all]{xy}
+
+%\usepackage{pstricks,pst-node,pst-circ,pst-plot,pst-3dplot,pst-all}
+
+% Hago que en la cabecera de pï¿½gina se muestre a la derecha la secciï¿½n,
+% y en el pie, en nï¿½mero de pï¿½gina a la derecha:
+%
+
+%----------------------Encabezado y pie de página---------------------------%
+\pagestyle{fancy}
+%\renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ \ #1}}
+
+%Encabezado izquierdo
+\lhead{\miAsignatura}
+%Encabezado derecho
+\rhead{\includegraphics[scale=0.2]{./Logos/Logo_FIUBA_2}}
+%Pie de pï¿½gina izquierdo
+\lfoot{\miCuatri}
+%Pie de pï¿½gina central
+\cfoot{}
+%Pie de pï¿½gina derecho
+\rfoot{Página:\thepage}
+%Lï¿½nea de la nota de pie
+\renewcommand{\footrulewidth}{0.4pt}

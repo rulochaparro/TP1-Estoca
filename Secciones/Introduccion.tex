@@ -1,0 +1,18 @@
+	\indent En el siguiente trabajo práctico se analizará dos esquemas de comunicaciones, uno digital y otro analógico.En ambos casos se transmitiran símbolos que represetnan 1 bit. Si el bit es 1, el símbolo será A y si es -1, se simbolorizá -A. La probabilidad de que A se 1 o -1 es $\frac{1}{2}$.\\
+	
+	\indent En el \textbf{repetidor digital} el bloque con la letra \textbf{D} toma una decisión acerca del símbolo transmitido y lo retransmite a la etapa siguiente y es la última etapa donde el detector toma la desición final. La opereación matemática del detector \emph{D} se puede escribir como:
+	
+						\begin{equation}
+							X_{i+1}=
+									\begin{cases}
+											A		& \quad \text{si} Y_i \geq 0 \\
+											-A		& \quad \text{si} Y_i \leq 0
+									\end{cases}
+						\label{Eq.sis.digital}
+						\end{equation}
+	\indent En cambio en el \textbf{repetidor analógico} se toma una única decisión y ocurre en el receptor. En los casos intermedios, los símbolos recibidos sonb multiplicados por una ganancia para luego retransmitirlos a la siguiente estapa. Dichos simbolos se pueden representar según:
+	
+						\begin{equation}
+							x_{I+1} = G_{i+1} \cdot Y_i \quad i=1,....,n-
+							\label{Eq.sis.analogico}
+						\end{equation}

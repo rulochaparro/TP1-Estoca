@@ -1,0 +1,22 @@
+\indent Como se puede ver en la figura ref{Agregar figura en la introduccion} $Y_n = h \cdot X_n + W_n $, y según la ecuación \ref{Eq.sis.analogico}  $ X_n = G_n \cdot Y_{n-1} \Rightarrow Y_n = h \cdot (G_n \cdot Y_{n-1})+ W_n$. Luego,  $Y_n = h \cdot (G_n \cdot (h \cdot X_{n-1} + W_{n-1})) + W_n $. Al mismo tiempo según la expresión \ref{Eq.sis.analogico} $X_{n-1} = G_{n-1} \cdot Y_{n-2} = G_{n-1} \cdot (h \cdot X_{n-2} + W_{n-2})$. Subsituyendo esta última expresión en la ecuación de $Y_n$ se obtiene:
+
+		\begin{equation}
+			y_n = h^3 \cdot G_n \cdot G_{n-1} \cdot X_{n-2} + h^2 \cdot G_n \cdot G_{n-1} \cdot W_{n-2} + h \cdot G_n \cdot G_n \cdot W_{n-1} + W_n
+			\label{Eq.yn}			
+		\end{equation}
+
+\indent Por reccurencia, se puede obtener la sigueinte expresión compacta de $Y_n$
+
+		\begin{equation}
+				Y_n = \left(\prod_{i=2}^{n}{h \cdot G_i} \right) \cdot X_i + \left( \sum_{j=1}^{n-1} \left( \prod_{k=j+1}^{n} h \cdot G_k \right) \cdot W_j \right) + W_n
+				\label{Eq.YN}
+		\end{equation}
+		
+\indent En la ecuación \ref{Eq.YN} se notan dos partes bien definidas y de las cuales $Y_n$ depende. Estas son, el primer término $X_1$ y el segundo término del ruido $W_n$. Se sabe por condiciones de enunciado que el ruido tiene una distribución normal. Como se ve en la expresión \ref{Eq.YN} el segundo termino es una sumatoria de $W_n$, por lo tanto ese término tiene una distrbucion normal de media nula y varianza: $\left( h \cdot G \right)^{2 \cdot (n-1)} \cdot \sigma ^2$, es decir $\left( \sum_{j=1}^{n-1} \left( \prod_{k=j+1}^{n} h \cdot G_k \right) \cdot W_j \right) + W_n \sim N (0, \left( h \cdot G \right)^{2 \cdot (n-1)} \cdot \sigma ^2)$.\\
+
+\indent Por comodida, como las ganancias G y las atenuaciones h son las mismas en todas las etapas, podemos escribir la ecuacion \ref{Eq.YN} de la sigueinte manera:
+
+			\begin{equation}
+				Y_n = h^n \cdot G^{n-1} \cdot X_1 + \sum_{j=1}^{n} \left( h \cdot G \right)^{n-j} \cdot W_j
+				\label{Eq.Yreducida}
+			\end{equation}
