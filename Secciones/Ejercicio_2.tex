@@ -25,7 +25,7 @@
 
 			\begin{align*}
 				\mathbb{V}[Y_n] &= \mathbb{V}\left[ \left(\prod_{i=2}^{n}{h \cdot G_i} \right) \cdot X_i + \left( \sum_{j=1}^{n-1} \left( \prod_{k=j+1}^{n} h \cdot G_k \right) \cdot W_j \right) + W_n \right] \\
-				\mathbb{V}[Y_n] &= h^{2n} \cdot G^{2(n-1)} \cdot \mathbb{V}[X_1] + \sum_{j=1}^{n} \left( (h \ cdot G)^{2(n-j)} \cdot \mathbb{V}[W_j] \right)
+				\mathbb{V}[Y_n] &= h^{2n} \cdot G^{2(n-1)} \cdot \mathbb{V}[X_1] + \sum_{j=1}^{n} \left( (h \cdot G)^{2(n-j)} \cdot \mathbb{V}[W_j] \right)
 			\end{align*}
 \indent Asumiendo que $\mathbb{V}[X_1] = \sigma _{X_1}^2 = \varepsilon$ y que $\mathbb{V}[X_j] = \sigma ^2$ la ecuación anterior la podemos excribir como
 
@@ -74,17 +74,17 @@
 \indent Tomando el primer término multiplicado por 2 de la ecuación \ref{Eq.proba_e2} y subtituyendo según la ecuación \ref{Eq.Yreducida}
 			
 			\begin{align*}
-				\mathbb{P}(X_1 \neq A | X_1 = A) &= \mathbb{P}\left( h^n \cdot G^{n-1} \cdot X_1 + \sum_{j=1}^{n}(h \cdot G)^(n-j) \cdot W_j |X_1=A \right)	\\
-				\mathbb{P}(X_1 \neq A | X_1 = A) &= \mathbb{P} \left( \sum_{j=1}^{n} (h \cdot G)^{n-j} \cdot W_j \leq -A h^n \cdot G^(n-1) \right)		
+				\mathbb{P}(X_1 \neq A | X_1 = A) &= \mathbb{P}\left( h^n \cdot G^{n-1} \cdot X_1 + \sum_{j=1}^{n}(h \cdot G)^{n-j} \cdot W_j |X_1=A \right)	\\
+				\mathbb{P}(X_1 \neq A | X_1 = A) &= \mathbb{P} \left( \sum_{j=1}^{n} (h \cdot G)^{n-j} \cdot W_j \leq -A h^n \cdot G^{n-1} \right)		
 			\end{align*}
-\indent Realiznado el siguiente cambio de varible: $\beta = \sum_{j=1}^{n} (h \cdot G)^{n-j} \cdot W_j$ donde $\beta$	al ser una suma de normales sigue teniendo una distribución normal. Por lo tanto si llamo $Z= \frac{\beta - \mathbb{E}[\beta]}{\mathbb{V}[\beta]}$, $Z \sim N(0,1)$. Por lo tanto lo buscado, en esta parte es:
+\indent Realiznado el siguiente cambio de varible: $\beta = \sum_{j=1}^{n} (h \cdot G)^{n-j} \cdot W_j$ donde $\beta$	al ser una suma de normales sigue teniendo una distribución normal. Por lo tanto si llamo $Z= \frac{\beta - \mathbb{E}[\beta]}{\sqrt{\mathbb{V}[\beta]}}$, $Z \sim N(0,1)$. Por lo tanto lo buscado, en esta parte es:
 
 			\begin{equation}
 				\mathbb{P}(X_1 \neq A | X_1 = A) = \mathbb{P} \left( Z\leq \frac{-A \cdot h^n \cdot G^{n-1} - \mathbb{E}[\beta]}{\mathbb{V}[\beta]} \right)
 				\label{Eq.Prob.Beta} \\
 			\end{equation}
 
-\indent Ahora bien, $\beta = \sum_{j=1}^{n-1} (h ^\cdot G)^{n-1} \ cdot W_j = \begin{bmatrix} (h \cdot G)^{n-1}, .... 1 \end{bmatrix} \cdot \begin{bmatrix} W_1, W_2, ...., W_j \end{bmatrix} ^T = \underline{D^T} \cdot \underline{W}$. Como $\underline{W} \sim N(0,C_W) \Rightarrow \beta \sim N(0, G \cdot C_W \cdot G^T)$. Por lo tanto
+\indent Ahora bien, $\beta = \sum_{j=1}^{n-1} (h ^\cdot G)^{n-1} \cdot W_j = \begin{bmatrix} (h \cdot G)^{n-1}, .... 1 \end{bmatrix} \cdot \begin{bmatrix} W_1, W_2, ...., W_j \end{bmatrix} ^T = \underline{D^T} \cdot \underline{W}$. Como $\underline{W} \sim N(0,C_W) \Rightarrow \beta \sim N(0, G \cdot C_W \cdot G^T)$. Por lo tanto
 
 				\begin{align*}
 				\mathbb{V}[\beta] &= \begin{bmatrix} (h \cdot G)^{n-1}, \cdots ,1 \end{bmatrix} \begin{bmatrix} \sigma ^2 & 0 & \cdots & 0 \\ 0 & \sigma ^2 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & \sigma ^2\end{bmatrix} \cdot \begin{bmatrix} (h \cdot G)^{n-1}\\ \vdots \\ 1 \end{bmatrix} \\
@@ -94,5 +94,12 @@
 Por simetría el segundo término de la ecuación \ref{Eq.proba_e2} es similar a la expresión \ref{Eq.Prob.Beta}, y como ambos términos de la ecuación \ref{Eq.proba_e2} están multiplicados por $\frac{1}{2}$, termina dando
 
 				\begin{equation}
-				\mathbb{P}(X_1 \neq \widehat{X_1}) = \phi \left( \frac{A \cdot h^n \cdot G^{n-1}}{\sigma ^2 \cdot \sum_{j=1}^{n} (h \cdot G)^{2(n-j)}}	 \right) 
-				\end{equation}			
+				\mathbb{P}(X_1 \neq \widehat{X_1}) = \phi \left( \frac{A \cdot h^n \cdot G^{n-1}}{\sqrt{\sigma ^2 \cdot \sum_{j=1}^{n} (h \cdot G)^{2(n-j)}}}	 \right) 
+				\end{equation}		
+
+\indent En el ejercicio se pide calcular dicha propiedad pero en términos de \textbf{SNR}. Con la expresión recién encontrada, teniendo en cuenta los resultados del punto 1 (ecuaciones \ref{Eq.Gi_SNR} y \ref{Eq.A_SNR}) y trabajando algebraicamente se puede obtener:
+
+				\begin{equation}
+					\mathbb{P}(X_1 \neq \widehat{X_1}) = \phi \left( \frac{h^2 \cdot \sqrt{\textbf{SNR}^n}}{\sqrt{(\textbf{SNR}+q)^n -\textbf{SNR}^n}} \right)
+					\label{Eq.prob_SNR}					
+				\end{equation} 	
