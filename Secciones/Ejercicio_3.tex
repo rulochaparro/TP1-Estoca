@@ -1,0 +1,64 @@
+En la figura \ref{label} se muestra la probabilidad de error de ambos sistemas en función de la \textit{SNR}, en casos de distintas cantidades de repetidores.
+
+
+
+
+
+
+
+
+La fórmula de probabilidad de error para el sistema digital puede demostrarse a partir de un argumento por recurrencia. Se parte de la fórmula de probabilidad de error para un sistema de un solo repetidor, la cual toma la siguiente forma:
+
+\begin{equation}
+P_{e,1}=\mathbb{P}(X_2\neq X_1) 
+\end{equation} 
+
+Esta probabilidad es igual a $Q(sqrt{SNR})$. Si se agrega otro repetidor, se tiene que que
+
+\begin{equation}
+P_{e,2}=\mathbb{P}(X_3\neq X_1)=\mathbb{P}(X_3\neq X_2)\mathbb{P}(X_2 = X_1)+\mathbb{P}(X_3 = X_2)\mathbb{P}(X_2\neq X_1)
+\end{equation} 
+
+lo que equivale a 
+
+\begin{equation}
+P_{e,2}=P_{e,1}(1-P_{e,1})+(1-P_{e,1})P_{e,1}
+\end{equation} 
+
+dado que $X_2 = X_1$ es complementario al error, y $X_3 \neq X_2$ es probabilidad de error con un solo repetidor. Con esto puede generalizarse que para $n$ repetidores vale
+
+\begin{equation}
+P_{e,n}=P_{e,1}+P_{e,n-1}-2P_{e,1}P_{e,n-1}
+\end{equation} 
+
+Ahora bien, esto es una ecuación en diferencias con condición inical $P_1 = Q(sqrt{SNR})$. 
+
+Para continuar operando y por comodidad, se llamarán $x[n]=P_{e,1},\alpha=P_{e,1},\beta=1-2P_{e,1}$. Se reescribe la ecuación anterior de la siguiente forma:
+
+\begin{equation}
+x[n]-\beta x[n-1]=\alpha
+\end{equation} 
+
+con solución de la ecuación homogénea $x_H[n]=k\beta^n$, con $k \in \mathbb{R}$ dependiendo de la condición inicial. Se propone $x_P[n]=c$ como solución particular, con $c\in\mathbb{R}$. Reemplazando, se obtiene que 
+
+\begin{equation}
+c=\frac{\alpha}{1-\beta}
+\end{equation} 
+
+Sumando ambas soluciones para obtener la solución a la ecuación, y con la condición inicial, se obtiene que 
+
+\begin{equation}
+k = \frac{P_{e,1}}{\beta}-\frac{\alpha}{\beta-\beta^2}
+\end{equation} 
+
+Siendo entonces la solución
+
+\begin{equation}
+x[n]=(\frac{P_{e,1}}{\beta}-\frac{\alpha}{\beta-\beta^2})\beta^n+\frac{\alpha}{1+\beta}
+\end{equation} 
+
+Finalmente, reemplazando los valores de $\alpha,\beta,P_{e,1}$ se llega a la expresión de probabilidad de error para un sistema digital
+
+\begin{equation}
+P_{e,n}=\frac{1}{2}(1-(1-2Q(\sqrt{SNR})^n))
+\end{equation} 
