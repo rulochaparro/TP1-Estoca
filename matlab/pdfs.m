@@ -71,11 +71,11 @@ Sum=1;
  
  hold on;
  
-  HErr=bar(xHistErr,HistoErr);
+  
   HOk=bar(xHistOk,HistoOk);
   
-  set(HErr,'Facecolor','g');
-  set(HOk,'Facecolor','r');
+  
+  set(HOk,'Facecolor','g');
   
  
  hold on;
@@ -95,8 +95,11 @@ Sum=1;
   H2Ok=bar(xHist2Ok,Histo2Ok);
   H2Err=bar(xHist2Err,Histo2Err);
   
- % set(H2Ok,'Facecolor','m');
-  %set(H2Err,'Facecolor','r');
+  set(H2Ok,'Facecolor','g');
+  set(H2Err,'Facecolor','r');
+  
+  HErr=bar(xHistErr,HistoErr);
+  set(HErr,'Facecolor','r');
  % Grafico la fdp teorica %
  
  x=-25.5:0.1:40.5;
@@ -109,7 +112,7 @@ Sum=1;
  
  FdpSalida2=normpdf(x2,Media2,DesvioRuido);
  
-% plot(x2,FdpSalida2,'b','LineWidth',3);
+ p5=plot(x2,FdpSalida2,'b','LineWidth',3);
 
 % legend('Histograma sin error', 'Histograma de error', 'f_{Y_{n}|X=-A}');
  %grid on;
@@ -118,8 +121,8 @@ Sum=1;
  
  FdpSalida1=normpdf(x,Media1,DesvioRuido);
  
- %plot(x,FdpSalida1,'m','LineWidth',3);
- %legend('Histograma de error', 'Histograma sin error', 'f_{Y_{n}|X=A}');
+ p6=plot(x,FdpSalida1,'k','LineWidth',3);
+ legend([p5 p6],'f_{Y_{n}|X=-A}','f_{Y_{n}|X=A}','Location','northeast')
  grid on;
  grid minor;
  hold on;

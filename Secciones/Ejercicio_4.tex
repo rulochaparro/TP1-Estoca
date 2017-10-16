@@ -11,4 +11,11 @@ Puede verse que las curvas teóricas corresponden con muy buena precisión a los
 
 En particular, este gráfico se generó con un millón de realizaciones para cada sistema y valor de \textbf{SNR}; sin embargo, se observó que a partir de aproximadamente veinte mil realizaciones puede notarse una clara tendencia a aproximarse a las curvas teóricas. 
 
-Finalmente, la figura \ref{fig:pdfs} muestra las funciones de densidad de probabilidad para $Y_n|_X_1=-A$ y de $Y_n|_X_1=A$. Las mismas se encuentran superpuestas a un histograma de simulacioón, con valor arbitrario de \textbf{SNR}=PONER VALOR. Puede verse que se trata de un solapamiento de 2 curvas normales, tal como es de esperarse.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{./Matlab/pdfs}
+	\caption{Graficas de las densiades de probabilidad. }
+	\label{fig:pdfs}
+\end{figure}
+
+Finalmente, la figura \ref{fig:pdfs} muestra las funciones de densidad de probabilidad para $Y_n|_{X_1=-A}$ y de $Y_n|_{X_1}=A$. Las mismas se encuentran superpuestas a un histograma de simulacioón, con valor arbitrario de \textbf{SNR}=10. Puede verse que se trata de un solapamiento de 2 curvas normales, tal como es de esperarse.
