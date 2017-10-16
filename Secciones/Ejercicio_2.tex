@@ -1,4 +1,4 @@
-\indent Como se puede ver en la figura ref{Agregar figura en la introduccion} $Y_n = h \cdot X_n + W_n $, y según la ecuación \ref{Eq.sis.analogico}  $ X_n = G_n \cdot Y_{n-1} \Rightarrow Y_n = h \cdot (G_n \cdot Y_{n-1})+ W_n$. Luego,  $Y_n = h \cdot (G_n \cdot (h \cdot X_{n-1} + W_{n-1})) + W_n $. Al mismo tiempo según la expresión \ref{Eq.sis.analogico} $X_{n-1} = G_{n-1} \cdot Y_{n-2} = G_{n-1} \cdot (h \cdot X_{n-2} + W_{n-2})$. Subsituyendo esta última expresión en la ecuación de $Y_n$ se obtiene:
+\indent Como se puede ver en la figura \ref{Fig.Sist_ana} $Y_n = h \cdot X_n + W_n $, y según la ecuación \ref{Eq.sis.analogico}  $ X_n = G_n \cdot Y_{n-1} \Rightarrow Y_n = h \cdot (G_n \cdot Y_{n-1})+ W_n$. Luego,  $Y_n = h \cdot (G_n \cdot (h \cdot X_{n-1} + W_{n-1})) + W_n $. Al mismo tiempo según la expresión \ref{Eq.sis.analogico} $X_{n-1} = G_{n-1} \cdot Y_{n-2} = G_{n-1} \cdot (h \cdot X_{n-2} + W_{n-2})$. Subsituyendo esta última expresión en la ecuación de $Y_n$ se obtiene:
 
 		\begin{equation}
 			y_n = h^3 \cdot G_n \cdot G_{n-1} \cdot X_{n-2} + h^2 \cdot G_n \cdot G_{n-1} \cdot W_{n-2} + h \cdot G_n \cdot G_n \cdot W_{n-1} + W_n
@@ -8,7 +8,7 @@
 \indent Por recurrencia, se puede obtener la sigueinte expresión compacta de $Y_n$
 
 		\begin{equation}
-				Y_n = \left(\prod_{i=2}^{n}{h \cdot G_i} \right) \cdot X_i + \left( \sum_{j=1}^{n-1} \left( \prod_{k=j+1}^{n} h \cdot G_k \right) \cdot W_j \right) + W_n
+				Y_n = \left(\prod_{i=2}^{n}{h \cdot G_i} \right) \cdot X_1 + \left( \sum_{j=1}^{n-1} \left( \prod_{k=j+1}^{n} h \cdot G_k \right) \cdot W_j \right) + W_n
 				\label{Eq.YN}
 		\end{equation}
 		
@@ -21,7 +21,7 @@
 				\label{Eq.Yreducida}
 			\end{equation}
 
-\indent Para calcular la relacipon señal a ruido de la última etapa se puede partir de la ecuación \ref{Eq.q.YN} y como X y W son independientes se puede escrbir:
+\indent Para calcular la relacipon señal a ruido de la última etapa se puede partir de la ecuación \ref{Eq.YN} y como X y W son independientes se puede escrbir:
 
 			\begin{align*}
 				\mathbb{V}[Y_n] &= \mathbb{V}\left[ \left(\prod_{i=2}^{n}{h \cdot G_i} \right) \cdot X_i + \left( \sum_{j=1}^{n-1} \left( \prod_{k=j+1}^{n} h \cdot G_k \right) \cdot W_j \right) + W_n \right] \\
@@ -30,11 +30,11 @@
 \indent Asumiendo que $\mathbb{V}[X_1] = \sigma _{X_1}^2 = \varepsilon$ y que $\mathbb{V}[X_j] = \sigma ^2$ la ecuación anterior la podemos excribir como
 
 			\begin{equation}
-				mathbb{V}[Y_n] = h^{2n} \cdot G^{2(n-1)} \cdot \varepsilon + \sum_{j=1}^{n} \left( (h \ cdot G)^{2(n-j)} \cdot \sigma ^2 \right)
+				\mathbb{V}[Y_n] = h^{2n} \cdot G^{2(n-1)} \cdot \varepsilon + \sum_{j=1}^{n} \left( (h \ cdot G)^{2(n-j)} \cdot \sigma ^2 \right)
 				\label{Eq.VarYn}
 			\end{equation}
 			
-\indent Si se observa en la ecuación \ref{Eq.VarYn} la varianza de la señal de interés es la suma de la varianza de la señal de entrada y la suma de los ruidos (salvo constantes). Como la relación de la señal a ruido se define comoel cociente entre la energía  de la señal de interés y la varianza del ruido, en este caso queda:
+\indent Si se observa en la ecuación \ref{Eq.VarYn} la varianza de la señal de interés es la suma de la varianza de la señal de entrada y la suma de los ruidos (salvo constantes). Como la relación de la señal a ruido se define como el cociente entre la energía  de la señal de interés y la varianza del ruido, en este caso queda:
 	
 			\begin{align*}
 			\textbf{SNR}(n) &=\frac{h^{2n} \cdot G^{2(n-1) } \cdot \varepsilon}{\sum_{j=1}^{n} \left[h \cdot G \right] ^{2(n-j)} \cdot \sigma ^2} \\
@@ -50,13 +50,13 @@
 
 \indent Como $G^2 = \frac{\varepsilon}{h^2 \cdot \varepsilon + \sigma ^2}$, la relación de la señal a ruido de la última etapa se puede reescribir como:
 
-			\begin{align*}
+			\begin{align}
 				\textbf{SNR}(n) &= \frac{\varepsilon \cdot (1- h^{-2} \cdot \left( (h^2 \cdot \varepsilon + \sigma ^2 ) / \varepsilon \right) }{h^{-2} \cdot \sigma ^2 \cdot \left[ 1- h^{-2n} \cdot \left( \frac{h^2 \cdot \varepsilon + \sigma ^2}{\varepsilon} \right) ^n \right]} \\
 				\textbf{SNR}(n) &= \frac{- \sigma ^2 \cdot h^{-2}}{\frac{h^{-2} \cdot \sigma ^2}{\varepsilon ^n} \cdot [\varepsilon ^n - h^{-2n} \cdot (h^2 \cdot \varepsilon + \sigma ^2)^n]} \\
 				\textbf{SNR}(n) &= \frac{- \varepsilon ^n}{\varepsilon ^n - \left( \frac{h^2 \cdot \varepsilon + \sigma ^2}{h^2} \right) ^n}			
-			\end{align*}
+			\end{align}
 	
-\indent Se pide calcular la probabilidad de error ($p_e$), que sería $p_e = P(X \neq \widehat{X})$. Usando probabilidad total y que X puede ser A o -A se obtiene:
+\indent Se pide calcular la probabilidad de error ($p_e$), que sería $p_e = \mathbb{P}(X \neq \widehat{X})$. Usando probabilidad total y que X puede ser A o -A se obtiene:
 
 			\begin{equation}
 				P_e = \mathbb{P}(X_1 \neq \widehat{X_1} | X_1 = A) \cdot \mathbb{P}(X_1 =A) + \mathbb{P} (X_1 \neq \widehat{X_1} | X_1 = -A) \cdot \mathbb{P}(X_1 = -A)
@@ -71,13 +71,13 @@
 				\label{Eq.proba_e2}
 			\end{align}
 
-\indent Tomando el primer término multiplicado por 2 de la ecuación \ref{Eq.proba_e2} y subtituyendo según la ecuación \ref{Eq.Yreducida}
+\indent Tomando el doble del primer término de la ecuación \ref{Eq.proba_e2} y subtituyendo según la ecuación \ref{Eq.Yreducida}
 			
 			\begin{align*}
 				\mathbb{P}(X_1 \neq A | X_1 = A) &= \mathbb{P}\left( h^n \cdot G^{n-1} \cdot X_1 + \sum_{j=1}^{n}(h \cdot G)^{n-j} \cdot W_j |X_1=A \right)	\\
 				\mathbb{P}(X_1 \neq A | X_1 = A) &= \mathbb{P} \left( \sum_{j=1}^{n} (h \cdot G)^{n-j} \cdot W_j \leq -A h^n \cdot G^{n-1} \right)		
 			\end{align*}
-\indent Realiznado el siguiente cambio de varible: $\beta = \sum_{j=1}^{n} (h \cdot G)^{n-j} \cdot W_j$ donde $\beta$	al ser una suma de normales sigue teniendo una distribución normal. Por lo tanto si llamo $Z= \frac{\beta - \mathbb{E}[\beta]}{\sqrt{\mathbb{V}[\beta]}}$, $Z \sim N(0,1)$. Por lo tanto lo buscado, en esta parte es:
+\indent Realiznado el cambio de varible: $\beta = \sum_{j=1}^{n} (h \cdot G)^{n-j} \cdot W_j$ donde $\beta$	al ser una suma de normales sigue teniendo una distribución normal y llamando $Z= \frac{\beta - \mathbb{E}[\beta]}{\sqrt{\mathbb{V}[\beta]}}$ ($Z \sim N(0,1)$) se obtiene:
 
 			\begin{equation}
 				\mathbb{P}(X_1 \neq A | X_1 = A) = \mathbb{P} \left( Z\leq - \left(\frac{A \cdot h^n \cdot G^{n-1} + \mathbb{E}[\beta]}{\mathbb{V}[\beta]} \right) \right)
@@ -91,7 +91,7 @@
 				\mathbb{V}[\beta] &= \sigma ^2 \cdot \sum_{j=1}^{n}(h \cdot G)^{2(n-j)}
 				\end{align*}
 
-\indent Por simetría el segundo término de la ecuación \ref{Eq.proba_e2} es similar a la expresión \ref{Eq.Prob.Beta}, y como ambos términos de la ecuación \ref{Eq.proba_e2} están multiplicados por $\frac{1}{2}$, termina dando
+\indent Por simetría el segundo término de la ecuación \ref{Eq.proba_e2} es similar a la expresión \ref{Eq.Prob.Beta} y como ambos términos de la ecuación \ref{Eq.proba_e2} están multiplicados por $\frac{1}{2}$, termina dando:
 
 				\begin{equation}
 				\mathbb{P}(X_1 \neq \widehat{X_1}) = 1 - \phi \left( \frac{A \cdot h^n \cdot G^{n-1}}{\sqrt{\sigma ^2 \cdot \sum_{j=1}^{n} (h \cdot G)^{2(n-j)}}}	 \right) 
@@ -99,7 +99,8 @@
 
 \indent En el ejercicio se pide calcular dicha propiedad pero en términos de \textbf{SNR}. Con la expresión recién encontrada, teniendo en cuenta los resultados del punto 1 (ecuaciones \ref{Eq.Gi_SNR} y \ref{Eq.A_SNR}) y trabajando algebraicamente se puede obtener:
 
-				\begin{equation}
-					\mathbb{P}(X_1 \neq \widehat{X_1}) = 1 - \phi \left( \frac{h^2 \cdot \sqrt{\textbf{SNR}^n}}{\sqrt{(\textbf{SNR}+1)^n -\textbf{SNR}^n}} \right)= Q \left( \frac{h^2 \cdot \sqrt{\textbf{SNR}^n}}{\sqrt{(\textbf{SNR}+1)^n -\textbf{SNR}^n}} \right)
-\label{Eq.prob_SNR}					
-\end{equation} 	
+				\begin{align}
+					\mathbb{P}(X_1 \neq \widehat{X_1}) &= 1 - \phi \left( \frac{h^2 \cdot \sqrt{\textbf{SNR}^n}}{\sqrt{(\textbf{SNR}+1)^n -\textbf{SNR}^n}} \right)\\
+					 \mathbb{P}(X_1 \neq \widehat{X_1}) &= Q \left( \frac{h^2 \cdot \sqrt{\textbf{SNR}^n}}{\sqrt{(\textbf{SNR}+1)^n -\textbf{SNR}^n}} \right)
+				\label{Eq.prob_SNR}					
+				\end{align} 	

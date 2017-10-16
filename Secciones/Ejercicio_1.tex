@@ -1,18 +1,18 @@
 \indent Se asume que cada repetidor analógico puede transmitir como máximo con una energía $\varepsilon$ .Por lo tanto se puede decir: $\sigma _{X_i}^{2} = \mathbb{V}[X_i] = A^2$. \\
-\indent Tomando por ejemplo el caso i =1, según la ecuación \ref{Eq.sis.analogico}, para $X_2 = G_2 \cdot Y_1  \Rightarrow \mathbb{V}[X_2] = \varepsilon = \mathbb{V}[G_2 \cdot Y_1] = \mathbb{V}[G_2 \cdot (h \cdot X_1 + W_1)]$. Como puedo suponer que X es independiente al ruido W, puedo aplicar la propiedad de la varianza, $\mathbb{V}[\alpha X]= \alpha^2 \cdot \mathbb{V}[X]$ y la propiedad de la suma $\mathbb{v}[X+Y] = \mathbb{V}[X]+ \mathbb{V}[Y]$. Al aplicar dichas propiedades la expresión me queda:
+\indent Tomando por ejemplo el caso i =1, según la ecuación \ref{Eq.sis.analogico}, $X_2 = G_2 \cdot Y_1  \Rightarrow \mathbb{V}[X_2] = \varepsilon = \mathbb{V}[G_2 \cdot Y_1] = \mathbb{V}[G_2 \cdot (h \cdot X_1 + W_1)]$. Como puedo suponer que X es independiente al ruido W, puedo aplicar la propiedad de la varianza, $\mathbb{V}[\alpha X]= \alpha^2 \cdot \mathbb{V}[X]$ y la propiedad de la suma $\mathbb{V}[X+Y] = \mathbb{V}[X]+ \mathbb{V}[Y]$. Al aplicar dichas propiedades la expresión me queda:
 
 				\begin{equation}
 					\mathbb{V}[X_2] =(G_2 \cdot h)^2 \cdot \mathbb{V} [X_1] + G_2^2 \cdot \mathbb{V}[ W_1]
 				\label{Eq.VarX2}
 				\end{equation}  
 	
-\indent Trabajando algebráicamente la ecuación \ref{Eq.VarX2}, me queda $\mathbb{V}[X_2] = G_2^2 \cdot (h^2 \cdot \mathbb{V}[X_1] + \mathbb{V}[W_1])$. Como la $\mathbb{V}[X_1] = \varepsilon$ y $W \sim N(0,\sigma ^2)$, la expresión anterior se puede expresar como $G_2^2 = \frac{\varepsilon}{h^2 \cdot \varepsilon \sigma ^2}$. Como las $X_i$ tendrán la misma energía y las $W_i$ se distribuyen normalmente identicamente e independientes, se puede generalizar de tal forma que queda:
+\indent Trabajando algebráicamente la ecuación \ref{Eq.VarX2}, nos queda $\mathbb{V}[X_2] = G_2^2 \cdot (h^2 \cdot \mathbb{V}[X_1] + \mathbb{V}[W_1])$. Como la $\mathbb{V}[X_1] = \varepsilon$ y $W \sim N(0,\sigma ^2)$, la expresión anterior se puede expresar como $G_2^2 = \frac{\varepsilon}{h^2 \cdot \varepsilon \sigma ^2}$. Como las $X_i$ tendrán la misma energía y las $W_i$ se distribuyen normalmente identicamente e independientes, se puede generalizar de tal forma que queda:
 				\begin{equation}
 					G_i = \sqrt{\frac{\varepsilon}{h^2 \cdot \varepsilon + \sigma ^2}}
 				\label{Eq.Gi}
 				\end{equation}
 
-Se pide expresar la ecuación anterior en función de la relación señal a ruido, $SNR = h^2 \cdot \varepsilon / \sigma ^2$. Sacando $\sigma$ de factor común y multiplicando y dividiendo por $h^2$, me queda:
+Se pide expresar la ecuación anterior en función de la relación señal a ruido, $\textbf{SNR} = h^2 \cdot \varepsilon / \sigma ^2$. Sacando $\sigma ^2$ de factor común y multiplicando y dividiendo por $h^2$, me queda:
 			
 				\begin{align}
 					G_i &= \sqrt{\frac{\textcolor{red}{h^2} \cdot \varepsilon}{\sigma ^2 \cdot \textcolor{red}{h^2} \cdot (\frac{h^2 \cdot \varepsilon}{\sigma ^2} + 1)}} \\
