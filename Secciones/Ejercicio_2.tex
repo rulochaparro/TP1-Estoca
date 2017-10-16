@@ -80,7 +80,7 @@
 \indent Realiznado el siguiente cambio de varible: $\beta = \sum_{j=1}^{n} (h \cdot G)^{n-j} \cdot W_j$ donde $\beta$	al ser una suma de normales sigue teniendo una distribución normal. Por lo tanto si llamo $Z= \frac{\beta - \mathbb{E}[\beta]}{\sqrt{\mathbb{V}[\beta]}}$, $Z \sim N(0,1)$. Por lo tanto lo buscado, en esta parte es:
 
 			\begin{equation}
-				\mathbb{P}(X_1 \neq A | X_1 = A) = \mathbb{P} \left( Z\leq \frac{-A \cdot h^n \cdot G^{n-1} - \mathbb{E}[\beta]}{\mathbb{V}[\beta]} \right)
+				\mathbb{P}(X_1 \neq A | X_1 = A) = \mathbb{P} \left( Z\leq - \left(\frac{A \cdot h^n \cdot G^{n-1} + \mathbb{E}[\beta]}{\mathbb{V}[\beta]} \right) \right)
 				\label{Eq.Prob.Beta} \\
 			\end{equation}
 
@@ -91,15 +91,15 @@
 				\mathbb{V}[\beta] &= \sigma ^2 \cdot \sum_{j=1}^{n}(h \cdot G)^{2(n-j)}
 				\end{align*}
 
-Por simetría el segundo término de la ecuación \ref{Eq.proba_e2} es similar a la expresión \ref{Eq.Prob.Beta}, y como ambos términos de la ecuación \ref{Eq.proba_e2} están multiplicados por $\frac{1}{2}$, termina dando
+\indent Por simetría el segundo término de la ecuación \ref{Eq.proba_e2} es similar a la expresión \ref{Eq.Prob.Beta}, y como ambos términos de la ecuación \ref{Eq.proba_e2} están multiplicados por $\frac{1}{2}$, termina dando
 
 				\begin{equation}
-				\mathbb{P}(X_1 \neq \widehat{X_1}) = \phi \left( \frac{A \cdot h^n \cdot G^{n-1}}{\sqrt{\sigma ^2 \cdot \sum_{j=1}^{n} (h \cdot G)^{2(n-j)}}}	 \right) 
+				\mathbb{P}(X_1 \neq \widehat{X_1}) = 1 - \phi \left( \frac{A \cdot h^n \cdot G^{n-1}}{\sqrt{\sigma ^2 \cdot \sum_{j=1}^{n} (h \cdot G)^{2(n-j)}}}	 \right) 
 				\end{equation}		
 
 \indent En el ejercicio se pide calcular dicha propiedad pero en términos de \textbf{SNR}. Con la expresión recién encontrada, teniendo en cuenta los resultados del punto 1 (ecuaciones \ref{Eq.Gi_SNR} y \ref{Eq.A_SNR}) y trabajando algebraicamente se puede obtener:
 
 				\begin{equation}
-					\mathbb{P}(X_1 \neq \widehat{X_1}) = \phi \left( \frac{h^2 \cdot \sqrt{\textbf{SNR}^n}}{\sqrt{(\textbf{SNR}+q)^n -\textbf{SNR}^n}} \right)
+					\mathbb{P}(X_1 \neq \widehat{X_1}) = 1 - \phi \left( \frac{h^2 \cdot \sqrt{\textbf{SNR}^n}}{\sqrt{(\textbf{SNR}+q)^n -\textbf{SNR}^n}} \right)
 					\label{Eq.prob_SNR}					
 				\end{equation} 	
