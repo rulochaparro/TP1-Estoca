@@ -14,20 +14,20 @@
 		
 \indent En la ecuación \ref{Eq.YN} se notan dos partes bien definidas y de las cuales $Y_n$ depende. Estas son, el primer término $X_1$ y el segundo término del ruido $W_n$. Se sabe por condiciones de enunciado que el ruido tiene una distribución normal. Como se ve en la expresión \ref{Eq.YN} el segundo termino es una sumatoria de $W_n$, por lo tanto ese término tiene una distrbucion normal de media nula y varianza: $\left( h \cdot G \right)^{2 \cdot (n-1)} \cdot \sigma ^2$, es decir $\left( \sum_{j=1}^{n-1} \left( \prod_{k=j+1}^{n} h \cdot G_k \right) \cdot W_j \right) + W_n \sim N (0, \left( h \cdot G \right)^{2 \cdot (n-1)} \cdot \sigma ^2)$.\\
 
-\indent Por comodidas, como las ganancias G y las atenuaciones h son las mismas en todas las etapas, podemos escribir la ecuacion \ref{Eq.YN} de la sigueinte manera:
+\indent Por comodidad, como las ganancias G y las atenuaciones h son las mismas en todas las etapas, podemos escribir la ecuación \ref{Eq.YN} de la sigueinte manera:
 
 			\begin{equation}
 				Y_n = h^n \cdot G^{n-1} \cdot X_1 + \sum_{j=1}^{n} \left( h \cdot G \right)^{n-j} \cdot W_j
 				\label{Eq.Yreducida}
 			\end{equation}
 
-\indent Para calcular la relacipon señal a ruido de la última etapa se puede partir de la ecuación \ref{Eq.YN} y como X y W son independientes se puede escrbir:
+\indent Para calcular la relación señal a ruido de la última etapa se puede partir de la ecuación \ref{Eq.YN} y como X y W son independientes se puede escrbir:
 
 			\begin{align*}
 				\mathbb{V}[Y_n] &= \mathbb{V}\left[ \left(\prod_{i=2}^{n}{h \cdot G_i} \right) \cdot X_i + \left( \sum_{j=1}^{n-1} \left( \prod_{k=j+1}^{n} h \cdot G_k \right) \cdot W_j \right) + W_n \right] \\
 				\mathbb{V}[Y_n] &= h^{2n} \cdot G^{2(n-1)} \cdot \mathbb{V}[X_1] + \sum_{j=1}^{n} \left( (h \cdot G)^{2(n-j)} \cdot \mathbb{V}[W_j] \right)
 			\end{align*}
-\indent Asumiendo que $\mathbb{V}[X_1] = \sigma _{X_1}^2 = \varepsilon$ y que $\mathbb{V}[X_j] = \sigma ^2$ la ecuación anterior la podemos excribir como
+\indent Asumiendo que $\mathbb{V}[X_1] = \sigma _{X_1}^2 = \varepsilon$ y que $\mathbb{V}[X_j] = \sigma ^2$ la ecuación anterior se puede escribir como
 
 			\begin{equation}
 				\mathbb{V}[Y_n] = h^{2n} \cdot G^{2(n-1)} \cdot \varepsilon + \sum_{j=1}^{n} \left( (h \ cdot G)^{2(n-j)} \cdot \sigma ^2 \right)
